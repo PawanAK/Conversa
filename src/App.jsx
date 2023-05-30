@@ -25,7 +25,7 @@ function App() {
     return (
       <div className="container">
         <div className="app">
-          <h1 className="title">Hello World</h1>
+          <h1 className="app-name">Conversa</h1>
           <Auth setIsAuth={setIsAuth} />
         </div>
       </div>
