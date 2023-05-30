@@ -1,42 +1,120 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #3b5998, #192f5d);
 }
 
-@keyframes logo-spin {
+.app {
+  width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slide-up 0.5s ease-in-out;
+}
+
+@keyframes slide-up {
   from {
-    transform: rotate(0deg);
+    transform: translateY(50%);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.title {
+  text-align: center;
+  font-size: 24px;
+  color: #3b5998;
+  margin-bottom: 20px;
 }
 
-.card {
-  padding: 2em;
+.room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.read-the-docs {
-  color: #888;
+.room-label {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.room-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.enter-button {
+  padding: 10px 20px;
+  background-color: #3b5998;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.sign-out {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.sign-out-button {
+  padding: 10px 20px;
+  background-color: #3b5998;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.room-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  background-color: #f5f5f5; /* Add a background color */
+  margin-bottom: 10px; /* Add some bottom margin */
+}
+
+.enter-button {
+  padding: 10px 20px;
+  background-color: #3b5998;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease; /* Add a transition effect */
+}
+
+.enter-button:hover {
+  background-color: #192f5d; /* Change the background color on hover */
+}
+
+.message.sent .receive {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px; /* Adjust the font size to make it smaller */
 }

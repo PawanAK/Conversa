@@ -23,8 +23,8 @@ const Chat = (props) => {
       messagesRef,
       where("room", "==", room),
       orderBy("createdAt")
-    ); // Use "==" operator instead of "="
-    const unsuscribe = onSnapshot(queryMessages, (snapshot) => {
+    );
+    const unsubscribe = onSnapshot(queryMessages, (snapshot) => {
       let messages = [];
       snapshot.forEach((doc) => {
         messages.push({ ...doc.data(), id: doc.id });
@@ -32,8 +32,8 @@ const Chat = (props) => {
       setMessages(messages);
     });
 
-    return () => unsuscribe();
-  }, []);
+    return () => unsubscribe();
+  }, [room]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,11 +52,15 @@ const Chat = (props) => {
   return (
     <div className="chat-app">
       <div className="header">
-        <h1>Welcome to : {room}</h1>
+        <h1>Welcome to: {room}</h1>
       </div>
       <div className="messages">
         {messages.map((message) => (
-          <div className="message" key={message.id}>
+          <div
+            className={`message ${
+              message.user === auth.currentUser.displayName ? "sent" : "receive"
+            }`}
+            key={message.id}>
             <span className="user">{message.user}</span>
             {message.text}
           </div>

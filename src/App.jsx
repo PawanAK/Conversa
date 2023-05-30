@@ -3,7 +3,7 @@ import "./App.css";
 import Auth from "./components/Auth";
 import Cookies from "universal-cookie";
 import Chat from "./components/Chat";
-import { auth } from "./firebase-config"; // Import the 'auth' instance
+import { auth } from "./firebase-config";
 import { signOut } from "firebase/auth";
 
 const cookies = new Cookies();
@@ -15,7 +15,7 @@ function App() {
   const roomInputRef = useRef(null);
 
   const signUserOut = async () => {
-    await signOut(auth); // Pass the 'auth' instance to the 'signOut' function
+    await signOut(auth);
     cookies.remove("auth-token");
     setIsAuth(false);
     setRoom(null);
@@ -23,28 +23,36 @@ function App() {
 
   if (!isAuth) {
     return (
-      <div>
-        Hello World
-        <Auth setIsAuth={setIsAuth} />
+      <div className="container">
+        <div className="app">
+          <h1 className="title">Hello World</h1>
+          <Auth setIsAuth={setIsAuth} />
+        </div>
       </div>
     );
   }
 
   return (
-    <div>
-      {room ? (
-        <Chat room={room} />
-      ) : (
-        <div className="room">
-          <label>Enter Room Name</label>
-          <input ref={roomInputRef} />
-          <button onClick={() => setRoom(roomInputRef.current.value)}>
-            Enter Chat
+    <div className="container">
+      <div className="app">
+        {room ? (
+          <Chat room={room} />
+        ) : (
+          <div className="room">
+            <label className="room-label">Enter Room Name</label>
+            <input className="room-input" ref={roomInputRef} />
+            <button
+              className="enter-button"
+              onClick={() => setRoom(roomInputRef.current.value)}>
+              Enter Chat
+            </button>
+          </div>
+        )}
+        <div className="sign-out">
+          <button className="sign-out-button" onClick={signUserOut}>
+            Sign Out
           </button>
         </div>
-      )}
-      <div className="sign-out">
-        <button onClick={signUserOut}>SignOut</button>
       </div>
     </div>
   );
