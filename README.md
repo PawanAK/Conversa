@@ -35,7 +35,7 @@ I'm super excited to show you how Conversa works! Check out our awesome demo vid
 
 Enough talking, let's experience the magic of Conversa in action! Click the link below to access our live demo, where you can explore the application, create chat rooms, and start chatting with your friends:
 
-👉 [Live Demo](https://main--conversa-app.netlify.app/) 👈
+👉 [Live Demo](https://conversa-app.netlify.app/) 👈
 
 ## Powered by Cutting-Edge Technologies ⚡
 
